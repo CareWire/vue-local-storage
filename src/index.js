@@ -23,8 +23,8 @@ export default {
     try {
       const test = '__vue-localstorage-test__'
 
-      window.localStorage.setItem(test, test)
-      window.localStorage.removeItem(test)
+      window.sessionStorage.setItem(test, test)
+      window.sessionStorage.removeItem(test)
     } catch (e) {
       isSupported = false
       vueLocalStorage._isSupported = false

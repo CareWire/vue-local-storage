@@ -51,7 +51,7 @@ class VueLocalStorage {
       ? JSON.stringify(rawValue)
       : rawValue
 
-    window.localStorage.setItem(key, value)
+    window.sessionStorage.setItem(key, value)
   }
 
   /**
@@ -64,7 +64,7 @@ class VueLocalStorage {
   _lsGet (lsKey) {
     const key = this._getLsKey(lsKey)
 
-    return window.localStorage[key]
+    return window.sessionStorage[key]
   }
 
   /**
@@ -133,7 +133,7 @@ class VueLocalStorage {
       return null
     }
 
-    return window.localStorage.removeItem(lsKey)
+    return window.sessionStorage.removeItem(lsKey)
   }
 
   /**
