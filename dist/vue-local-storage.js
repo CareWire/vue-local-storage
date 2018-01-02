@@ -1,6 +1,6 @@
 /**
- * vue-local-storage v0.6.0
- * (c) 2017 Alexander Avakov
+ * vue-local-storage v0.6.1
+ * (c) 2018 Alexander Avakov
  * @license MIT
  */
 (function (global, factory) {
@@ -60,7 +60,7 @@ VueLocalStorage.prototype._lsSet = function _lsSet (lsKey, rawValue, type) {
     ? JSON.stringify(rawValue)
     : rawValue;
 
-  window.localStorage.setItem(key, value);
+  window.sessionStorage.setItem(key, value);
 };
 
 /**
@@ -73,7 +73,7 @@ VueLocalStorage.prototype._lsSet = function _lsSet (lsKey, rawValue, type) {
 VueLocalStorage.prototype._lsGet = function _lsGet (lsKey) {
   var key = this._getLsKey(lsKey);
 
-  return window.localStorage[key]
+  return window.sessionStorage[key]
 };
 
 /**
@@ -148,7 +148,7 @@ VueLocalStorage.prototype.remove = function remove (lsKey) {
     return null
   }
 
-  return window.localStorage.removeItem(lsKey)
+  return window.sessionStorage.removeItem(lsKey)
 };
 
 /**
@@ -232,8 +232,8 @@ var index = {
     try {
       var test = '__vue-localstorage-test__';
 
-      window.localStorage.setItem(test, test);
-      window.localStorage.removeItem(test);
+      window.sessionStorage.setItem(test, test);
+      window.sessionStorage.removeItem(test);
     } catch (e) {
       isSupported = false;
       vueLocalStorage._isSupported = false;
